@@ -1,6 +1,7 @@
 import numpy as np
 import random
 import os
+import math
 
 def estimateMean(vector,budget):
 	
@@ -92,14 +93,13 @@ def rankedInsert(vectors,means,target_vector,target_mean,budget,iterations,f):
 	alg_answer = np.argmax(weights)
 	difference_mean = min(means[alg_answer]-means[actual_answer],means[alg_answer+1]-means[actual_answer])
 	difference_posn = abs(actual_answer - alg_answer)
-	print "**"
-	print "alg answer " + str(alg_answer)
-	print "answer actual " + str(actual_answer)
-	print "mean [i] " + str(means[alg_answer])
-	print "mean [i+1] " + str(means[alg_answer+1])
-	print "mean [actual answer]" + str(means[actual_answer])
-	print "difference in mean " + str(difference_mean)
-	print "difference in position " + str(difference_posn)
+	print "Position estimated by the algorithm [i] " + str(alg_answer)
+	print "Actual Position " + str(actual_answer)
+	#print "mean [i] " + str(means[alg_answer])
+	#print "mean [i+1] " + str(means[alg_answer+1])
+	#print "mean [actual answer]" + str(means[actual_answer])
+	print "Absolute difference in mean " + str(math.fabs(difference_mean))
+	print "Absolute difference in position " + str(difference_posn)
 
 	# Store in values that you want to plot
 

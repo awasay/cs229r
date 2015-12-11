@@ -35,6 +35,33 @@ def generateVectors(num,size,max,type):
 
 	return vectors,means 
 
+def generateVectorsNS(num,size,max,type):
+
+	vectors=[]
+	means=[]
+	start=0
+	
+	# Type : 1 uniform data within the same interval
+	if type == 1:
+		for i in range(start,num):
+			vectors.append(np.random.uniform(0,max,size))
+			means.append(np.mean(vectors[i]))
+	
+	# Type : 2 uniform data within random intervals
+	if type == 2:
+		for i in range(start,num):
+			vectors.append(np.random.uniform(random.randint(0,max/2),random.randint(max/2,max),size))
+			means.append(np.mean(vectors[i]))
+
+	#Type : 3 uniform data with non-overlapping intervals
+	if type == 3:
+		intervals = max/num
+		for i in range(start,num):
+			vectors.append(np.random.uniform(intervals*i,intervals*(i+1),size))
+			means.append(np.mean(vectors[i]))
+
+	return vectors,means
+
 def rearrange(lst,order):
 	assert(len(lst)==len(order))
 
