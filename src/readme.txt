@@ -1,5 +1,6 @@
 CS229r Project
 ==============
+Author: Abdul Wasay
 
 To run ranked insert
 =-=-=-=-=-=-=-=-=-=-
